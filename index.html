@@ -9,19 +9,29 @@
 </head>
 <body>
     <div>
-        <h2>JavaScript Weather APP</h2>
+        <h1>JavaScript Weather App</h1>
     </div>
-    <div>
-        <input type="text" name="text_input" id="city" placeholder="City">
-        <button>Submit</button>
+    <div class="container-fluid">
+        <section class="inputs">
+            <input type="text" name="cityinput" id="cityinput" placeholder=" Enter a city">
+            <input type="submit" value="Submit" id="add">
+
+            <button placeholder="submit" id="add"></button>
+        </section>
+        
     </div>
-    <div>
-        <h3>Weather of Seattle</h3>
-        <p id="condition">Sky Conditions: clear sky</p>
-        <p id="temp">Temperature: 3.94 C</p>
-        <p id="wind">Wind Speed: 0.45 km/h</p>
+    <div class="container-fluid">
+        <section class="diaplay">
+            <div class="wrapper">
+                <h2 id="city">Weather of Seattle</h2>
+                <p id="condition">Sky Conditions: clear sky</p>
+                <p id="temp">Temperature: 3.94 C</p>
+                <p id="wind">Wind Speed: 0.45 km/h</p>
+            </div>  
+        </section>
+        
     </div>
 
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
 </body>
 </html>
