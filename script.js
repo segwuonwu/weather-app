@@ -8,12 +8,17 @@ const wind = document.getElementById('wind');
 const weatherDisplay = document.getElementById('display');
 
 //weather api_key
-api_key = "4d91e309ccabca359c07956e0ec6451f";
+const api_key = config.API_KEY;
+//api_key = "4d91e309ccabca359c07956e0ec6451f";
 
 //converstion: 1 Kelvin = -272.15 Celsius
-const convert = (value) => {
+const convertToCelsius = (value) => {
     return (value - 273).toFixed(2);
 };
+
+const convertToFah = (value) => {
+    return ((value - 273.15) * 9 / 5 + 32).toFixed(2)
+}
 
 weatherDisplay.style.display = "none";
 
@@ -27,13 +32,16 @@ submit.addEventListener('click', () => {
             const name = data.name;
             const description = data.weather[0].description;
             const val = data.main.temp;
-            const temperature = convert(val);
+            const celsius = convertToCelsius(val);
+            const fahrenheit = convertToFah(val);
+            const windSpeed = data.wind.speed;
 
             city.innerHTML = `Weather of <span>${name}</span>`;
             condition.innerHTML = `Sky Conditions: <span>${description}</span>`;
-            temp.innerHTML = `Temperature: <span>${temperature}℃ </span> `
+            temp.innerHTML = `Temperature: <span>${celsius}℃ | ${fahrenheit}℉</span> `;
+            wind.innerHTML = `Wind Speed: <span>${windSpeed} mph</span>`;
             weatherDisplay.style.display = "block";
 
         })
-
+        .catch(err => alert("The city doesn't exist"))
 })
