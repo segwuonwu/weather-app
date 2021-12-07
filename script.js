@@ -9,7 +9,6 @@ const weatherDisplay = document.getElementById('display');
 
 //weather api_key
 const api_key = config.API_KEY;
-//api_key = "4d91e309ccabca359c07956e0ec6451f";
 
 //converstion: 1 Kelvin = -272.15 Celsius
 const convertToCelsius = (value) => {
